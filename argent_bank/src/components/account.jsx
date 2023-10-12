@@ -57,7 +57,8 @@ function Account(){
         ) : (// si aucun utilisateur connecté //
             < div className="cont-user">
                 <NavLink className="userButton" to="/signin">
-                    <p>Sign Up</p>
+                    <i className="fas fa-user-circle"></i>
+                    <p>Sign In</p>
                 </NavLink>
             </div>
         )}

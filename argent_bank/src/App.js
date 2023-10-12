@@ -1,5 +1,6 @@
 import Header from "./layouts/header";
 import Footer from "./layouts/footer";
+import "./styles/main.scss"
 
 function App() {
   return (
