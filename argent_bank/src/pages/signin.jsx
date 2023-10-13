@@ -31,7 +31,7 @@ function SignIn(){
             password:password
         };
         fetch('http://localhost:3001/api/v1/user/login', {
-            method:'POST'?
+            method:'POST',
             Headers : {
                 'Content-Type' : 'application/json'
             },
@@ -65,13 +65,13 @@ function SignIn(){
         }
     }, [token , navigation]);
     return(
-        <main>
+        <main className="darkMode">
             <section className="signIn">
                 <i className="fa fa-user-circle signIn-icon"></i>
                 <form onSubmit={handleSignIn}>
                     <div className="inputWrapper">
                         <label htmlFor="username">Email</label>
-                        <input className={error ? 'sign-in__error-border' : ''}type="email" id="username" value={username} onChange={handleUsernameChange} required/>
+                        <input autoComplete="email" className={error ? 'sign-in__error-border' : ''}type="email" id="username" value={username} onChange={handleUsernameChange} required/>
                     </div>
                     <div className="inputWrapper">
                         <label htmlFor="password">Password</label>
@@ -79,10 +79,9 @@ function SignIn(){
                     </div>
                     { error && <p className="signIn-errorMessage">Username or Password incorrect</p>}
                     <div className="inputRemember">
-                        <input type="checbox" id="rememberMe"/>
+                        <input type="checkbox" id="rememberMe"/>
                         <label htmlFor="rememberMe">Remember me</label>
                     </div>
-
                     <button className="signInButton" type="submit">Sign In</button>
                 </form>
             </section>
