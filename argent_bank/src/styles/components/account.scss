@@ -1,7 +1,10 @@
-a.userButton.active{
+.cont-user a{
+    margin-right:0.5em;
     text-decoration: none;
+    font-weight: bold;
     color:black;
     display:flex;
+    align-items: center;
     i{
         margin-right:10px;
     }
