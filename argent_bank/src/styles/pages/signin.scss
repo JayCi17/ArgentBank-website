@@ -1,0 +1,54 @@
+.darkMode{
+    background-color: #12002b;
+    display: flex;
+    flex-direction: column;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+.signIn{
+    box-sizing: border-box;
+    background-color: white;
+    width:300px;
+    padding:2rem;
+    margin-top:3rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:17rem;
+}
+    .signInButton{
+        display: block;
+        width:100%;
+        padding: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-top: 1rem;
+        border-color: #00bc77;
+        background-color: #00bc77;
+        color: #fff;
+    }
+    .signIn-icon{
+        font-size: 5rem;
+    }
+    .inputRemember{
+        display: flex;
+        font-weight: bold;
+        label{
+            margin-left: 0.25rem;
+        }
+    }
+    .inputWrapper{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        margin-bottom: 1rem;
+        label {
+            font-weight: bold;
+          }
+          input {
+            padding: 5px;
+            font-size: 1.2rem;
+          }
+    }
