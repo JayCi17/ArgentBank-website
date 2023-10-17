@@ -10,7 +10,7 @@ function SignIn(){
     //récuperation du token de l'utilisateur //
     const token = useSelector((state)=> state.auth.token);
     //definition des 2 états locaux pour stocker le nom de l'utilisateur et le mot de passe//
-    const [username, setUsername]= useState('');
+    const [userName, setUserName]= useState('');
     const [password, setPassword] = useState('');
     //état pour gérer les erreurs lors de la connexion//
     const [error, setError]= useState('');
@@ -18,7 +18,7 @@ function SignIn(){
     const navigation = useNavigate();
     //Fonction de gestion des changements de valeurs des champs du formulaire//
     const handleUsernameChange = (event) => {
-        setUsername(event.target.value);
+        setUserName(event.target.value);
     }
     const handlePasswordChange = (event) =>{
         setPassword(event.target.value);
@@ -27,11 +27,11 @@ function SignIn(){
     const handleSignIn = (event) =>{
         event.preventDefault();
         const userData={
-            email:username,
+            email:userName,
             password:password
         };
         fetch('http://localhost:3001/api/v1/user/login', {
-            method:'POST',
+            method: 'POST',
             Headers : {
                 'Content-Type' : 'application/json'
             },
@@ -71,11 +71,11 @@ function SignIn(){
                 <form onSubmit={handleSignIn}>
                     <div className="inputWrapper">
                         <label htmlFor="username">Email</label>
-                        <input autoComplete="email" className={error ? 'sign-in__error-border' : ''}type="email" id="username" value={username} onChange={handleUsernameChange} required/>
+                        <input autoComplete="email" className={error ? 'sign-in__error-border' : ''}type="email" id="username" value={userName} onChange={handleUsernameChange} required/>
                     </div>
                     <div className="inputWrapper">
                         <label htmlFor="password">Password</label>
-                        <input className={error ? 'sign-in__error-border' : ''}type="password" id="password" value={password} onChange={handlePasswordChange} require/>
+                        <input className={error ? 'sign-in__error-border' : ''}type="password" id="password" value={password} onChange={handlePasswordChange} required/>
                     </div>
                     { error && <p className="signIn-errorMessage">Username or Password incorrect</p>}
                     <div className="inputRemember">
