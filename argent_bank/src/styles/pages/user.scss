@@ -1,0 +1,63 @@
+.account-header{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width:35%;
+    color:#fff;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    font-weight: bold;
+}
+
+
+
+
+.account{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    border : 1px solid black;
+    background-color: #fff;
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding:1.5rem;
+    box-sizing: border-box;
+    text-align: left;
+    margin-bottom: 2rem;
+    .account-title{
+        font-size: 1rem;
+        font-weight: normal;
+        margin:0;
+        padding:0;
+    }
+    .account-amount{
+        margin: 0;
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+    .account-amount-description{
+        margin:0;
+    }
+}
+
+.transaction-button{
+    display: block;
+    width:100%;
+    padding: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    border-color: #00bc77;
+    background-color: #00bc77;
+    color: #fff;
+}
+
+.edit-button{
+    width:inherit;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;;
+
+}

@@ -39,10 +39,10 @@ function SignUp(){
             lastName:lastName,
             userName:userName
         };
-        fetch('http://localhost3001/api/v1/user/signup',{
+        fetch('http://localhost:3001/api/v1/user/signup',{
             method:'POST',
             headers:{
-                'Content-Type': 'application/json'
+                'Content-type': 'application/json'
             },
             body: JSON.stringify(userData)
         })
@@ -68,9 +68,9 @@ function SignUp(){
         }
     },[token, navigate]);
     return(
-        <main>
-            <section className="signUp">
-                <i className="fa fa-user-circle signUp-icon"></i>
+        <main className="darkMode">
+            <section className="signUp signIn">
+                <i className="fa fa-user-circle signUp-icon signIn-icon"></i>
                 <form onSubmit={handleSignUp}>
                     <div className="signUp-cont">
                         <div className="inputWrapper">
@@ -94,7 +94,7 @@ function SignUp(){
                             <input  autoComplete="text" className={error ? 'sign-up__error-border': ''} type="text" id="userName" value={userName} onChange={handleUsernameChange} required/>
                         </div>
                         {error && <p className="sing-up__error-message">An error has occured</p>}
-                        <button className="sign-up__button" type="submit">Sign Up</button>
+                        <button className="sign-up__button signInButton" type="submit">Sign Up</button>
                     </div>
                 </form>
             </section>

@@ -1,6 +1,6 @@
 const initialState = {
     userName:'',
-    firtsName :'',
+    firstName :'',
     lastName : ''
 };
 

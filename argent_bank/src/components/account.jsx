@@ -48,7 +48,10 @@ function Account(){
         <>
         {username ? (// verifie sin un nom d'utilisateur est present (utilisateur connecté) //
             <div className="cont-user">
-                <button className="userButton" onClick={handleLogOut}>Logout</button>
+                <NavLink className="userButton" onClick={handleLogOut}>
+                    <i className="fa fa-sign-out"></i>
+                    <p>Sign Out</p>
+                </NavLink>
                 <NavLink className="userButton" to="/user">
                     <i className="fas fa-user-circle"></i>
                     <p>{username}</p>

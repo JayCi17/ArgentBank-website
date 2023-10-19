@@ -19,7 +19,7 @@ function User(){
     },[token, navigate]);
     //rendu de la page utilisateur//
     return(
-        <main className="main">
+        <main className="darkMode">
             <EditUser/>
             <Transactions/>
         </main>

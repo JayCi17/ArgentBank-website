@@ -7,11 +7,11 @@ function EditUser(){
     const dispatch = useDispatch();//initialise la fonction dispatch pour envoyer des actions au store Redux//
     //utilisation de useSelector pour extraire des valeurs de l'état global de l'application//
     const token = useSelector((state)=>state.auth.token);//extrait le token d'authentifaication//
-    const user = useSelector((state)=>state.auth.userName);//extrait le nom d'utilisateur actuel//
+    const user = useSelector((state)=>state.name.userName);//extrait le nom d'utilisateur actuel//
     const firstName = useSelector((state)=> state.name.firstName);//extrait le prénom//
     const lastName = useSelector((state)=>state.name.lastName);//extrait le nom de famille//
     const[showForm, setShowForm] = useState(false);//initialise un état local showForm pour gérer l'affichage du formulaire//
-    const [newUserName, setNewUserName] = useState("");//initialise un état local pour le nouveau nom d'utilisateur//
+    const [newUserName, setNewUserName] = useState('');//initialise un état local pour le nouveau nom d'utilisateur//
     const toogleForm = () => {
         setShowForm( !showForm);//une fonction pour basculer l'affichage du formaulaire en appuyant sur un bouton//
     };
@@ -22,13 +22,13 @@ function EditUser(){
         event.preventDefault();//empeche la soumission par defaut du formulaire //
         try{
             //efectue une requete http PUT pour mettre à jour le nom d'utilisateur//
-            const response = await fetch("http://localhost:3001/api/user/profile",{
+            const response = await fetch("http://localhost:3001/api/v1/user/profile",{
                 method: 'PUT',
                 headers : {
-                    'Content-type': 'application/json',
-                    'Authorization': `Bearer ${token}`,//utilise le token d'authentification dans les en-têtes//
+                    'Content-Type': 'application/json',
+                    'authorization': `Bearer ${token}`,//utilise le token d'authentification dans les en-têtes//
                 },
-                body: JSON.stringify({username:newUserName}),//envpoie le nouveau nom d'utilisateur au format Json//
+                body: JSON.stringify({userName:newUserName}),//envpoie le nouveau nom d'utilisateur au format Json//
             });
             if(response.ok){//si la requête réussie//
                 console.log(response);//affiche la reponse dans la console//
@@ -36,9 +36,9 @@ function EditUser(){
                 dispatch({
                     type:'SET_USER',
                     payload: {
-                        username : newUserName,
-                        firstname : firstName,
-                        lastname : lastName,
+                        userName : newUserName,
+                        firstName : firstName,
+                        lastName : lastName,
                     },
                 });
             } else {
@@ -58,11 +58,11 @@ function EditUser(){
         <section className="account-header">
             <h1>Welcome back, {firstName} {lastName} !</h1>
             {!showForm && (
-                <button className="transaction-button button" onClick={toogleForm}>Edit your name</button>
+                <button className="transaction-button edit-button" onClick={toogleForm}>Edit name</button>
             )}
         </section>
         {showForm &&(
-            <form className="account-form" onSubmit={handleSubmit}>
+            <form className="account-form inputWrapper" onSubmit={handleSubmit}>
                 <label htmlFor="firstName">First Name:</label>
                 <input id="firstName" type="text" value={firstName} disabled/>
                 <label htmlFor="lastName">Last Name</label>
