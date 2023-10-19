@@ -2,12 +2,13 @@ import React, {useEffect} from "react";
 import { useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import EditUser from "../components/editUser";
+import Transactions from "../components/transactions";
 
 function User(){
     //extraction du jeton d'authentification de l'état géré par redux//
     const token = useSelector((state)=>state.auth.token);
     //récupération de la fonction navigation du router//
-    const navigate = useNavigate;
+    const navigate = useNavigate();
     //utilisation du Hook useEffect pour effectuer une action lorsque le jeton change//
     useEffect (()=>{
         //verification de la presence du jeton//
@@ -20,6 +21,7 @@ function User(){
     return(
         <main className="main">
             <EditUser/>
+            <Transactions/>
         </main>
     )
 }

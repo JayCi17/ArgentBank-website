@@ -7,9 +7,9 @@ function EditUser(){
     const dispatch = useDispatch();//initialise la fonction dispatch pour envoyer des actions au store Redux//
     //utilisation de useSelector pour extraire des valeurs de l'état global de l'application//
     const token = useSelector((state)=>state.auth.token);//extrait le token d'authentifaication//
-    const user = useSelector((state)=>state.auth.username);//extrait le nom d'utilisateur actuel//
-    const firstName = useSelector((state)=> state.auth.firstname);//extrait le prénom//
-    const lastName = useSelector((state)=>state.auth.lastname);//extrait le nom de famille//
+    const user = useSelector((state)=>state.auth.userName);//extrait le nom d'utilisateur actuel//
+    const firstName = useSelector((state)=> state.name.firstName);//extrait le prénom//
+    const lastName = useSelector((state)=>state.name.lastName);//extrait le nom de famille//
     const[showForm, setShowForm] = useState(false);//initialise un état local showForm pour gérer l'affichage du formulaire//
     const [newUserName, setNewUserName] = useState("");//initialise un état local pour le nouveau nom d'utilisateur//
     const toogleForm = () => {
@@ -55,8 +55,8 @@ function EditUser(){
     },[user]);
     return(
         <>
-        <section className="accoutn-header">
-            <h1>Welcome back {firstName} {lastName} !</h1>
+        <section className="account-header">
+            <h1>Welcome back, {firstName} {lastName} !</h1>
             {!showForm && (
                 <button className="transaction-button button" onClick={toogleForm}>Edit your name</button>
             )}
