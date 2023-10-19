@@ -18,9 +18,9 @@ function Account(){
                 try {
                     const response = await fetch ('http://localhost:3001/api/v1/user/profile',{
                         method : 'POST',
-                        Headers : {
+                        headers : {
                             'content-type' : 'application/json',
-                            'Authorization' : `Bearer ${token}`,
+                            'authorization' : `Bearer${token}`,
                         },
                     });
                     if (response.ok){// si la requête est réussie //
@@ -59,6 +59,9 @@ function Account(){
                 <NavLink className="userButton" to="/signin">
                     <i className="fas fa-user-circle"></i>
                     <p>Sign In</p>
+                </NavLink>
+                <NavLink className="userButton" to="/signup">
+                    <p>Sign Up</p>
                 </NavLink>
             </div>
         )}

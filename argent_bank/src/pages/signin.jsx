@@ -10,15 +10,15 @@ function SignIn(){
     //récuperation du token de l'utilisateur //
     const token = useSelector((state)=> state.auth.token);
     //definition des 2 états locaux pour stocker le nom de l'utilisateur et le mot de passe//
-    const [userName, setUserName]= useState('');
+    const [email, setEmail]= useState('');
     const [password, setPassword] = useState('');
     //état pour gérer les erreurs lors de la connexion//
     const [error, setError]= useState('');
     //hook pour gérer la navigation vers d'autres pages//
     const navigation = useNavigate();
     //Fonction de gestion des changements de valeurs des champs du formulaire//
-    const handleUsernameChange = (event) => {
-        setUserName(event.target.value);
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);
     }
     const handlePasswordChange = (event) =>{
         setPassword(event.target.value);
@@ -27,12 +27,12 @@ function SignIn(){
     const handleSignIn = (event) =>{
         event.preventDefault();
         const userData={
-            email:userName,
+            email:email,
             password:password
         };
         fetch('http://localhost:3001/api/v1/user/login', {
             method: 'POST',
-            Headers : {
+            headers: {
                 'Content-Type' : 'application/json'
             },
             body : JSON.stringify(userData)
@@ -42,6 +42,7 @@ function SignIn(){
             console.log(data);
             if(data.status !== 200){//gestion des erreurs//
                 setError(true);
+                console.log(data.message);
                 return;
             }
             else{
@@ -56,6 +57,7 @@ function SignIn(){
         })
         .catch (error=>{
             console.error(error);
+            setError(true);
         });
     };
     //si l'utilisateur est déja connecté on le redirige vers la page utilisateur//
@@ -70,12 +72,12 @@ function SignIn(){
                 <i className="fa fa-user-circle signIn-icon"></i>
                 <form onSubmit={handleSignIn}>
                     <div className="inputWrapper">
-                        <label htmlFor="username">Email</label>
-                        <input autoComplete="email" className={error ? 'sign-in__error-border' : ''}type="email" id="username" value={userName} onChange={handleUsernameChange} required/>
+                        <label htmlFor="email">Email</label>
+                        <input autoComplete="email" className={error ? 'sign-in__error-border' : ''}type="email" id="email" value={email} onChange={handleEmailChange} required/>
                     </div>
                     <div className="inputWrapper">
                         <label htmlFor="password">Password</label>
-                        <input className={error ? 'sign-in__error-border' : ''}type="password" id="password" value={password} onChange={handlePasswordChange} required/>
+                        <input autoComplete="current-password"   className={error ? 'sign-in__error-border' : ''}type="password" id="password" value={password} onChange={handlePasswordChange} required/>
                     </div>
                     { error && <p className="signIn-errorMessage">Username or Password incorrect</p>}
                     <div className="inputRemember">

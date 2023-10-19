@@ -26,7 +26,7 @@ function EditUser(){
                 method: 'PUT',
                 headers : {
                     'Content-type': 'application/json',
-                    Authorization : `Bearer ${token}`,//utilise le token d'authentification dans les en-têtes//
+                    'Authorization': `Bearer ${token}`,//utilise le token d'authentification dans les en-têtes//
                 },
                 body: JSON.stringify({username:newUserName}),//envpoie le nouveau nom d'utilisateur au format Json//
             });
@@ -63,12 +63,12 @@ function EditUser(){
         </section>
         {showForm &&(
             <form className="account-form" onSubmit={handleSubmit}>
-                <label>First Name:</label>
-                <input type="text" value={firstName} disabled/>
-                <label>Last Name</label>
-                <input type="text" value={lastName} disabled />
-                <label>New Username</label>
-                <input type="text" value={newUserName} onChange={handleInputChange} required />
+                <label htmlFor="firstName">First Name:</label>
+                <input id="firstName" type="text" value={firstName} disabled/>
+                <label htmlFor="lastName">Last Name</label>
+                <input id="lastName" type="text" value={lastName} disabled />
+                <label htmlFor="newUserName">New Username</label>
+                <input id="newUserName" type="text" value={newUserName} onChange={handleInputChange} required />
                 <button type="submit" className="transaction-button button">Comfirm</button>
             </form>
         )}
