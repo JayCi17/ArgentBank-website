@@ -156,7 +156,7 @@ definitions:
     properties:
       userName:
         type: string
-        #documentation pour la deuxième partie du projet
+        
   /user/transactions:
     get:
       description: Retrieve all transactions for the current month
@@ -198,10 +198,10 @@ definitions:
           Bearer: []
         parameters:
           -name: transactionID
-          -in : path
-          -descritpion: ID of the transaction retrieve
-          -required: true
-          -type: string
+          in : path
+          descritpion: ID of the transaction retrieve
+          required: true
+          type: string
         responses:
           '200':
             descritpion: Success, return the specified transaction
@@ -253,9 +253,9 @@ definitions:
             description: Success, transaction information has been deleted
           '401':
             description: Unauthorized, missong or invalid token
-          '404'
+          '404':
             description: Transaction not found
-          '500'
+          '500':
           description: Server error
 
 
