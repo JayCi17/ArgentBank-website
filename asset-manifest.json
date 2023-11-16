@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ArgentBank-website/static/css/main.943f15fc.css",
+    "main.js": "/ArgentBank-website/static/js/main.acbc5772.js",
+    "static/media/bank-tree.png": "/ArgentBank-website/static/media/bank-tree.2568c87200f6294fdcb7.png",
+    "static/media/icon-security.png": "/ArgentBank-website/static/media/icon-security.1c819fa1007a5c53e6a9.png",
+    "static/media/icon-money.png": "/ArgentBank-website/static/media/icon-money.8ec88bb1a5070fd6513a.png",
+    "index.html": "/ArgentBank-website/index.html",
+    "main.943f15fc.css.map": "/ArgentBank-website/static/css/main.943f15fc.css.map",
+    "main.acbc5772.js.map": "/ArgentBank-website/static/js/main.acbc5772.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.943f15fc.css",
+    "static/js/main.acbc5772.js"
+  ]
+}
