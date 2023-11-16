@@ -13,7 +13,7 @@ function EditUser(){
     const[showForm, setShowForm] = useState(false);//initialise un état local showForm pour gérer l'affichage du formulaire//
     const [newUserName, setNewUserName] = useState('');//initialise un état local pour le nouveau nom d'utilisateur//
     const toogleForm = () => {
-        setShowForm( !showForm);//une fonction pour basculer l'affichage du formaulaire en appuyant sur un bouton//
+        setShowForm( !showForm);//une fonction pour basculer l'affichage du formulaire en appuyant sur un bouton//
     };
     const handleInputChange = (event) =>{
         setNewUserName(event.target.value);//fonction pour mettre à jour newUserName lorsque l'utilisateur tape dans le champs//

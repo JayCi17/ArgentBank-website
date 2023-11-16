@@ -24,9 +24,9 @@ function Account(){
                         },
                     });
                     if (response.ok){// si la requête est réussie //
-                        const data = await response.json();// récuperation des données de l'untilisateur depuis le serveur //
+                        const data = await response.json();// récuperation des données de l'utilisateur depuis le serveur //
                         console.log(data);
-                        dispatch({// action pour enregistrer les données de l'untilisateur dans le store Redux//
+                        dispatch({// action pour enregistrer les données de l'utilisateur dans le store Redux//
                             type : 'SET_USER',
                             payload : {
                                 userName : data.body.userName,
